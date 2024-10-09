@@ -1,26 +1,35 @@
 body {
+  padding: 0;
   margin: 0;
   font-family: Arial, sans-serif;
 }
-.header {
+header {
   background-color: #003366;
-  padding: 10px;
+  padding: 1vh 4rem 1vh 3vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 .logo {
-  font-size: 24px;
+  width: 4rem;
   font-weight: bold;
   color: white;
-  margin-left: 20px;
+  transition: all .5s ease 0s;
 }
-.nav {
+
+.logo:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+nav {
   display: flex;
-  gap: 15px;
-  margin-right: 20px;
+  gap: 1vw;
+  overflow: auto;
+  scrollbar-width: thin;
+  margin-right: 3rem;
 }
-.nav button {
+nav a {
   background-color: white;
   color: #003366;
   border: none;
@@ -28,16 +37,23 @@ body {
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
+  height: 3vh;
+  max-width: 20vw;
+  white-space: nowrap;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.nav button.active {
+nav a.active {
   background-color: #336699;
   color: white;
 }
-.nav button:hover {
+nav a:hover {
   background-color: #0055cc;
   color: white;
 }
 .logo img {
-  height: 50px; /* Ajustez la hauteur selon la taille souhaitée */
-  width: auto;
+  width: 100%; /* Ajustez la hauteur selon la taille souhaitée */
+  width: 100%;
 }
