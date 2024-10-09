@@ -1,1 +1,141 @@
+* {
+    box-sizing: border-box;
+  }
 
+  body {
+    background-color: #F5F5F5;
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    text-align: center;
+    color: #000000;
+  }
+
+  h2{
+    color: #66A3D2;
+  }
+  
+  h3{
+    color: #336699;
+  }
+
+
+  /* The actual timeline (the vertical ruler) */
+  .timeline {
+    position: relative;
+    max-width: 90vw; /* Use vw to make it responsive */
+    margin: 0 auto;
+  }
+
+  /* The timeline's line */
+  .timeline::after {
+    content: '';
+    position: absolute;
+    width: 0.9vw; /* Use vw instead of pixels */
+    background-color: #336699;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Container around content */
+  section {
+    padding: 2vh 5vw; /* Use vh/vw for padding */
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+  }
+
+  /* Circles on the timeline */
+  section::after {
+    content: '';
+    position: absolute;
+    width: 2.5vw; /* Adjust width/height for a circle */
+    height: 2.5vw;
+    right: -1.5vw; /* Adjust right position */
+    background-color: #003366;
+    border: 0.5vw solid #66A3D2;
+    top: 2vh;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  /* Containers for the left and right side */
+  .left {
+    left: 0;
+  }
+
+  .right {
+    left: 50%;
+  }
+
+  /* Arrows pointing to content */
+  .left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 2vh;
+    right: 3vw; /* Adjust with vw */
+    border: medium solid white;
+    border-width: 1.5vw 0 1.5vw 1.5vw; /* Use vw for arrow */
+    border-color: transparent transparent transparent white;
+  }
+
+  .right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 2vh;
+    left: 3vw;
+    border: medium solid white;
+    border-width: 1.5vw 1.5vw 1.5vw 0;
+    border-color: transparent white transparent transparent;
+  }
+
+  .right::after {
+    left: -1.5vw;
+  }
+
+  /* The actual content */
+  article {
+    padding: 2vh 4vw; /* Use vh/vw for padding */
+    background-color: white;
+    position: relative;
+    border-radius: 0.5vw; /* Make border-radius responsive */
+  }
+
+  /* Media queries - Responsive timeline on smaller screens */
+  @media screen and (max-width: 600px) {
+    .timeline::after {
+      left: 5vw;
+    }
+
+    section {
+      width: 100%;
+      padding-left: 10vw;
+      padding-right: 5vw;
+    }
+
+    section::before {
+      left: 8vw;
+      border: medium solid white;
+      border-width: 1.5vw 1.5vw 1.5vw 0;
+      border-color: transparent white transparent transparent;
+    }
+
+    .left::after, .right::after {
+      left: 5vw;
+    }
+
+    .right {
+      left: 0%;
+    }
+
+    article {
+      width: 90%;
+    }
+  }
