@@ -11,11 +11,12 @@ header {
   justify-content: space-between;
   width: 100%;
 }
+
 .logo {
   width: 4rem;
   font-weight: bold;
   color: white;
-  transition: all .5s ease 0s;
+  transition: all 0.5s ease 0s;
 }
 
 .logo:hover {
@@ -53,6 +54,7 @@ nav a:hover {
   background-color: #0055cc;
   color: white;
 }
+
 .logo img {
   width: 100%; /* Ajustez la hauteur selon la taille souhaitée */
   width: 100%;
