@@ -9,10 +9,32 @@
     padding: 0;
   }
 
-  h1 {
+  .page-intro {
     text-align: center;
-    color: #000000;
+    width: 100%;
+    padding: 3rem 11vw 0 11vw;
+    
   }
+  
+
+  .page-intro > h1 {
+    text-align: center;
+    color: #336699;
+    font-style: italic;
+    font-size: 2rem;
+    font-weight: -100;
+  }
+
+  .timeline-image {
+    display: block; /* Affiche l'image en tant qu'élément de bloc */
+    margin: 20px auto 0 auto; /* Centre l'image avec un espace autour */
+    width: 150px; /* Définit une largeur fixe pour l'image */
+    height: 150px; /* Définit une hauteur fixe pour l'image */
+    border-radius: 50%; /* Rend l'image circulaire */
+    object-fit: cover; /* S'assure que l'image couvre entièrement le cercle */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Ajoute une ombre pour plus de profondeur */
+  }
+  
 
   h2{
     color: #66A3D2;
@@ -26,7 +48,7 @@
   /* The actual timeline (the vertical ruler) */
   .timeline {
     position: relative;
-    max-width: 90vw; /* Use vw to make it responsive */
+    max-width: 90vw; 
     margin: 0 auto;
   }
 
@@ -34,7 +56,7 @@
   .timeline::after {
     content: '';
     position: absolute;
-    width: 0.9vw; /* Use vw instead of pixels */
+    width: 0.9vw; 
     background-color: #336699;
     top: 0;
     bottom: 0;
@@ -44,7 +66,7 @@
 
   /* Container around content */
   section {
-    padding: 2vh 5vw; /* Use vh/vw for padding */
+    padding: 2vh 5vw; 
     position: relative;
     background-color: inherit;
     width: 50%;
@@ -54,9 +76,9 @@
   section::after {
     content: '';
     position: absolute;
-    width: 2.5vw; /* Adjust width/height for a circle */
-    height: 2.5vw;
-    right: -1.5vw; /* Adjust right position */
+    width: 1.8vw; 
+    height: 1.8vw;
+    right: -1.5vw; 
     background-color: #003366;
     border: 0.5vw solid #66A3D2;
     top: 2vh;
@@ -79,10 +101,10 @@
     height: 0;
     position: absolute;
     top: 2vh;
-    right: 3vw; /* Adjust with vw */
-    border: medium solid white;
-    border-width: 1.5vw 0 1.5vw 1.5vw; /* Use vw for arrow */
-    border-color: transparent transparent transparent white;
+    right: 3vw; 
+    border: medium solid #003366;
+    border-width: 1.5vw 0 1.5vw 1.5vw; 
+    border-color: transparent transparent transparent #66A3D2;
   }
 
   .right::before {
@@ -91,9 +113,9 @@
     position: absolute;
     top: 2vh;
     left: 3vw;
-    border: medium solid white;
+    border: medium solid #003366;
     border-width: 1.5vw 1.5vw 1.5vw 0;
-    border-color: transparent white transparent transparent;
+    border-color: transparent #66A3D2 transparent transparent;
   }
 
   .right::after {
@@ -102,10 +124,10 @@
 
   /* The actual content */
   article {
-    padding: 2vh 4vw; /* Use vh/vw for padding */
+    padding: 2vh 4vw; 
     background-color: white;
     position: relative;
-    border-radius: 0.5vw; /* Make border-radius responsive */
+    border-radius: 0.5vw; 
   }
 
   /* Media queries - Responsive timeline on smaller screens */
