@@ -4,7 +4,9 @@ body {
   margin: 0;
   padding: 0px;
   /*prendre les dimensions de l'écran*/
+  width: 100%;
   height: 100vh;
+  overflow-x: hidden;
 }
 .quiz {
   max-width: 600px;
@@ -15,6 +17,8 @@ body {
 }
 .question-section {
   margin-bottom: 20px;
+  /*center le texte*/
+  text-align: center;
 }
 .question-count {
   font-size: 18px;
@@ -37,6 +41,7 @@ body {
   cursor: pointer;
   font-size: 16px;
   border-radius: 4px;
+  text-align: left;
 }
 .answer-section button:hover {
   background-color: #0055cc;
@@ -46,10 +51,60 @@ body {
   text-align: center;
 }
 .question-number-position {
-  position: absolute; /* Permet de positionner par rapport à l'élément parent */
-  bottom: 20px; /* Espace du bas */
-  right: 20px; /* Espace de la droite */
+  position: relative;
+  text-align: right;
   font-size: 16px; /* Taille de police */
   color: #003366; /* Couleur du texte */
   font-weight: bold; /* Texte en gras */
+}
+.wrong-answer {
+  background-color: #f8d7da !important;
+  color: #721c24 !important;
+  border: 2px solid #f5c6cb !important;
+}
+.right-answer {
+  background-color: #d4edda !important;
+  color: #155724 !important;
+  border: 2px solid #c3e6cb !important;
+}
+.icon {
+  margin-left: 10px;
+}
+#feedback-message {
+  margin-top: 20px;
+  font-size: 1.2em;
+  text-align: center;
+  display: none;
+}
+#feedback-message.error {
+  color: red;
+}
+#feedback-message.success {
+  color: green;
+}
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: space-between; /* Espace entre le texte et l'icône */
+  align-items: center;
+  width: 100%; /* Pour que le bouton prenne toute la largeur */
+}
+button:disabled {
+  cursor: not-allowed;
+  display: flex;
+}
+.icon-success {
+  color: green;
+  margin-left: auto; /* Pousse l'icône à droite */
+}
+.icon-error {
+  color: red;
+  margin-left: auto; /* Pousse l'icône à droite */
+  /*alligner l'icône à droite*/
 }
