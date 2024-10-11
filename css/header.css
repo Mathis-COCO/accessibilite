@@ -10,7 +10,7 @@ body {
 }
 header {
   background-color: #003366;
-  padding: 1vh 4rem 1vh 3vw;
+  /* padding: 1vh 4rem 1vh 3vw; */
   display: flex;
   align-items: center;
   justify-content: space-between;
