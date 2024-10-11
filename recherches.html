@@ -4,23 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/header.css" />
-    <title>Header Example</title>
+    <link rel="stylesheet" href="./css/recherches.scss" />
   </head>
   <body>
-    <div class="header">
-      <div class="logo">
-        <img src="images/logo.webp" alt="Logo" />
-      </div>
-      <div class="nav">
-        <!-- Chaque bouton redirige vers une page -->
-        <a href="accueil.html"><button>Accueil</button></a>
-        <a href="biographie.html"><button>Biographie</button></a>
-        <a href="recherches.html"
-          ><button lass="active">Ses Recherches</button></a
-        >
-        <a href="maladie.html"><button>Sa Maladie</button></a>
-        <a href="quiz.html"><button c>Quiz</button></a>
-      </div>
-    </div>
+    <header>
+      <nav class="logo">
+        <img src="images/logo.webp" alt="logo du site" />
+      </nav>
+      <nav>
+        <a href="biographie.html">Biographie</a>
+        <a href="recherches.html" lass="active">Ses Recherches</a>
+        <a href="maladie.html">Sa Maladie</a>
+        <a href="quiz.html">Quiz</a>
+      </nav>
+    </header>
+    <main>
+      <section class="page-intro">
+        <article>
+          <h1>"Le premier ennemi de la connaissance n'est pas l'ignorance, c'est l'illusion de la connaissance."</h1>
+          <h2>- Stephen Hawking</h2>
+        </article>
+      </section>
+      <section>
+        <article>
+          <div>
+            <h1>Les trous noirs</h1>
+            <h4>
+              Stephen Hawking a proposé que ces objets célestes ne soient pas totalement « noirs » et émettent une radiation, 
+              connue sous le nom de « radiation de Hawking ». Cette découverte suggère que les trous noirs peuvent finalement 
+              s’évaporer et disparaître, remettant en question l'idée que rien ne peut s'échapper de leur attraction gravitationnelle.
+            </h4>
+          </div>
+          <div>
+            <img src="" alt="image de trou noir selon Stephen Hawking" />
+          </div>
+        </article>
+        <article>
+          <div>
+            <h1>La cosmologie et le Big Bang</h1>
+            <h4>
+              Hawking a contribué à la théorie du Big Bang, développant des modèles mathématiques qui décrivent l'univers à ses débuts. 
+              Il a travaillé sur la manière dont l'univers a évolué depuis cette singularité initiale, 
+              aidant à établir un lien entre la relativité générale et la mécanique quantique.
+            </h4>
+          </div>
+          <div>
+            <img src="" alt="image de Stephen Hawking devant un tableau comportant des calculs" />
+          </div>
+        </article>
+      </section>
+    </main>
   </body>
 </html>

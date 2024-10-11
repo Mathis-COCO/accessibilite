@@ -3,22 +3,204 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="quiz sur Stephen Hawking" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <link rel="stylesheet" href="./css/header.css" />
-    <title>Header Example</title>
+    <link rel="stylesheet" href="./css/quiz.css" />
+    <title>Quiz sur Stephen Hawking</title>
   </head>
   <body>
-    <div class="header">
-      <div class="logo">
-        <img src="images/logo.webp" alt="Logo" />
-      </div>
-      <div class="nav">
-        <!-- Chaque bouton redirige vers une page -->
-        <a href="accueil.html"><button>Accueil</button></a>
-        <a href="biographie.html"><button>Biographie</button></a>
-        <a href="recherches.html"><button>Ses Recherches</button></a>
-        <a href="maladie.html"><button>Sa Maladie</button></a>
-        <a href="quiz.html"><button class="active">Quiz</button></a>
-      </div>
-    </div>
+    <header>
+      <nav class="logo">
+        <img src="images/logo.webp" alt="logo du site" />
+      </nav>
+      <nav>
+        <a href="biographie.html">Biographie</a>
+        <a href="recherches.html">Ses Recherches</a>
+        <a href="maladie.html">Sa Maladie</a>
+        <a href="quiz.html" class="active">Quiz</a>
+      </nav>
+    </header>
+
+    <main class="quiz">
+      <section class="question-section" id="question-section">
+        <h1>QUIZ TIME !</h1>
+        <p class="question-text" id="question-text">
+          Quel est le titre du livre le plus célèbre de Stephen Hawking publié
+          en 1988 ?
+        </p>
+        <!-- Le message de feedback juste après la question -->
+        <p id="feedback-message" class="feedback-message"></p>
+      </section>
+      <section class="answer-section" id="answer-section">
+        <!-- Les boutons de réponse seront insérés ici -->
+      </section>
+      <section id="score-section" class="score-section" style="display: none">
+        Vous avez obtenu <span id="score"></span> sur
+        <span id="total-questions"></span>.
+      </section>
+      <div class="question-number-position" id="question-number-position"></div>
+    </main>
+
+    <script>
+      const quizData = [
+        {
+          question:
+            "Quel est le titre du livre le plus célèbre de Stephen Hawking publié en 1988 ?",
+          options: [
+            "A) La Structure du temps",
+            "B) L'Univers dans une coquille de noix",
+            "C) Une brève histoire du temps",
+            "D) Le Grand Design",
+          ],
+          correctAnswer: "C) Une brève histoire du temps",
+        },
+        {
+          question:
+            "Quelle maladie a été diagnostiquée chez Stephen Hawking à l'âge de 21 ans ?",
+          options: [
+            "A) Sclérose en plaques",
+            "B) Maladie de Lou Gehrig (sclérose latérale amyotrophique)",
+            "C) Parkinson",
+            "D) Dystrophie musculaire",
+          ],
+          correctAnswer:
+            "B) Maladie de Lou Gehrig (sclérose latérale amyotrophique)",
+        },
+        {
+          question:
+            "Dans quel domaine Stephen Hawking a-t-il principalement travaillé ?",
+          options: [
+            "A) La biologie",
+            "B) L'astronomie",
+            "C) La physique théorique",
+            "D) La chimie",
+          ],
+          correctAnswer: "C) La physique théorique",
+        },
+        {
+          question:
+            "Quel concept célèbre Stephen Hawking a-t-il développé concernant les trous noirs ?",
+          options: [
+            "A) Les trous de ver",
+            "B) La radiation de Hawking",
+            "C) Les ondes gravitationnelles",
+            "D) La singularité",
+          ],
+          correctAnswer: "B) La radiation de Hawking",
+        },
+        {
+          question:
+            "Quelle université Stephen Hawking a-t-il fréquentée pour ses études de premier cycle ?",
+          options: [
+            "A) Université d'Oxford",
+            "B) Université de Cambridge",
+            "C) MIT",
+            "D) Université de Harvard",
+          ],
+          correctAnswer: "A) Université d'Oxford",
+        },
+        {
+          question: "Dans quelle année Stephen Hawking est-il décédé ?",
+          options: ["A) 2018", "B) 2019", "C) 2020", "D) 2021"],
+          correctAnswer: "A) 2018",
+        },
+        {
+          question:
+            "Quel prix prestigieux Stephen Hawking a-t-il reçu pour ses contributions à la science ?",
+          options: [
+            "A) Prix Nobel de la paix",
+            "B) Médaille Copley",
+            "C) Prix Abel",
+            "D) Médaille Fields",
+          ],
+          correctAnswer: "B) Médaille Copley",
+        },
+      ];
+
+      let currentQuestion = 0;
+      let score = 0;
+
+      function loadQuestion() {
+        document.getElementById("question-text").textContent =
+          quizData[currentQuestion].question;
+
+        document.getElementById(
+          "question-number-position"
+        ).textContent = `Question ${currentQuestion + 1} / ${quizData.length}`;
+
+        const options = quizData[currentQuestion].options;
+        const answerSection = document.getElementById("answer-section");
+        answerSection.innerHTML = ""; // Vide les anciennes réponses
+
+        options.forEach((option) => {
+          const button = document.createElement("button");
+          button.textContent = option;
+          button.onclick = () => handleAnswerClick(option, button);
+          answerSection.appendChild(button);
+        });
+
+        document.getElementById("feedback-message").style.display = "none";
+      }
+
+      function handleAnswerClick(selectedAnswer, button) {
+        const correctAnswer = quizData[currentQuestion].correctAnswer;
+        const feedbackMessage = document.getElementById("feedback-message");
+
+        if (selectedAnswer === correctAnswer) {
+          button.classList.add("right-answer"); // Change la couleur à vert
+          button.innerHTML += `<i class="fas fa-check icon-success"></i>`; // Icône verte
+          feedbackMessage.textContent = "Bonne réponse !";
+          feedbackMessage.classList.add("success");
+          feedbackMessage.classList.remove("error");
+          feedbackMessage.style.display = "block";
+          score++;
+        } else {
+          button.classList.add("wrong-answer"); // Change la couleur à rouge
+          button.innerHTML += `<i class="fas fa-times icon-error"></i>`; // Icône rouge
+          feedbackMessage.textContent = "Ce n'est pas la bonne réponse !";
+          feedbackMessage.classList.add("error");
+          feedbackMessage.classList.remove("success");
+          feedbackMessage.style.display = "block";
+        }
+
+        // Désactive tous les boutons après une réponse
+        const buttons = document.querySelectorAll("#answer-section button");
+        buttons.forEach((btn) => {
+          btn.disabled = true; // Désactive chaque bouton
+          if (btn.textContent === correctAnswer) {
+            btn.classList.add("right-answer"); // Marque la bonne réponse en vert
+            btn.innerHTML += `<i class="fas fa-check icon-success"></i>`; // Ajoute l'icône verte à la bonne réponse
+          }
+        });
+
+        // Passe à la question suivante après un délai
+        setTimeout(() => {
+          currentQuestion++;
+          if (currentQuestion < quizData.length) {
+            loadQuestion();
+          } else {
+            showScore();
+          }
+        }, 3000); // Délai de 3 secondes avant de charger la question suivante
+      }
+
+      function showScore() {
+        document.getElementById("answer-section").style.display = "none";
+        document.getElementById("question-section").style.display = "none";
+        document.getElementById("score-section").style.display = "block";
+        document.getElementById("score").textContent = `${score}`;
+        document.getElementById(
+          "total-questions"
+        ).textContent = `${quizData.length}`;
+      }
+
+      window.onload = function () {
+        loadQuestion();
+      };
+    </script>
   </body>
 </html>
