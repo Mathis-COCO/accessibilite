@@ -6,6 +6,9 @@ footer {
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
+  position: relative;
+  bottom: 0;
+
 }
 
 footer h2,
