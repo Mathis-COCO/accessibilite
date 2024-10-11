@@ -1,0 +1,117 @@
+footer {
+  background-color: #003366;
+  padding: 10px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+footer h2,
+footer h3 {
+  margin: 0;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+form label {
+  font-size: 0.75rem;
+  margin-bottom: 0;
+}
+
+textarea,
+input {
+  margin-top: 0;
+  background-color: #003366;
+  border-radius: 1rem;
+  border: 1px solid white;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.btn_send {
+  width: 7.5rem;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  margin-right: 0;
+  color: white;
+  height: 2rem;
+  border: 1px solid white;
+}
+
+.form_container {
+  width: 30%;
+}
+
+.similar_container {
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.similar_container h3 {
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+footer form {
+  display: flex;
+  flex-direction: column;
+}
+
+footer button {
+  background-color: #66ccff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 1rem;
+  border-radius: 0.75rem;
+  justify-content: center;
+  display: flex;
+  align-self: center;
+}
+
+footer img {
+  border-radius: 3rem;
+  width: 5rem;
+  height: 7rem;
+}
+
+footer .similar-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .similar-content div {
+  margin: 0 10px;
+}
+
+.similar_url_container {
+  display: flex;
+  gap: 3rem;
+}
+
+.similar_subcontainer {
+  width: 12rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.similar_site_link {
+  color: white;
+  text-decoration: none;
+}
+
+.social_container {
+  margin-bottom: 0;
+}

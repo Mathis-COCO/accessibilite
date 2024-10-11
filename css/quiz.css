@@ -2,12 +2,12 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f5f5f5;
   margin: 0;
-  padding: 0px;
-  /*prendre les dimensions de l'écran*/
+  padding: 0;
   width: 100%;
   height: 100vh;
   overflow-x: hidden;
 }
+
 .quiz {
   max-width: 600px;
   margin: 0 auto;
@@ -15,21 +15,23 @@ body {
   padding: 30px;
   border-radius: 8px;
 }
+
 .question-section {
   margin-bottom: 20px;
-  /*center le texte*/
   text-align: center;
 }
+
 .question-count {
   font-size: 18px;
   margin-bottom: 10px;
 }
+
 .question-text {
   font-size: 20px;
   margin-bottom: 20px;
-  /*center le texte*/
   text-align: center;
 }
+
 .answer-section button {
   display: block;
   width: 100%;
@@ -43,45 +45,55 @@ body {
   border-radius: 4px;
   text-align: left;
 }
+
 .answer-section button:hover {
   background-color: #0055cc;
 }
+
 .score-section {
   font-size: 24px;
   text-align: center;
 }
+
 .question-number-position {
   position: relative;
   text-align: right;
-  font-size: 16px; /* Taille de police */
-  color: #003366; /* Couleur du texte */
-  font-weight: bold; /* Texte en gras */
+  font-size: 16px;
+  color: #003366;
+  font-weight: bold;
 }
+
 .wrong-answer {
   background-color: #f8d7da !important;
   color: #721c24 !important;
   border: 2px solid #f5c6cb !important;
 }
+
 .right-answer {
   background-color: #d4edda !important;
   color: #155724 !important;
   border: 2px solid #c3e6cb !important;
 }
+
 .icon {
   margin-left: 10px;
 }
-#feedback-message {
-  margin-top: 20px;
-  font-size: 1.2em;
-  text-align: center;
-  display: none;
+
+.feedback-message {
+  min-height: 30px; /* Définit une hauteur minimale */
+  margin-top: 10px;
+  color: #333;
+  visibility: hidden; /* Le message sera invisible, mais l'espace sera réservé */
 }
-#feedback-message.error {
-  color: red;
-}
-#feedback-message.success {
+
+.feedback-message.success {
   color: green;
 }
+
+.feedback-message.error {
+  color: red;
+}
+
 button {
   padding: 10px 20px;
   margin: 5px;
@@ -95,16 +107,73 @@ button {
   align-items: center;
   width: 100%; /* Pour que le bouton prenne toute la largeur */
 }
+
 button:disabled {
   cursor: not-allowed;
   display: flex;
 }
+
 .icon-success {
   color: green;
   margin-left: auto; /* Pousse l'icône à droite */
 }
+
 .icon-error {
   color: red;
   margin-left: auto; /* Pousse l'icône à droite */
-  /*alligner l'icône à droite*/
+}
+
+#next-question-btn,
+#show-score-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#next-question-btn:hover,
+#show-score-btn:hover {
+  background-color: #0056b3;
+}
+
+#show-score-btn {
+  display: none;
+}
+
+/* Accessibilité pour le focus des boutons */
+button:focus {
+  outline: 2px solid #0056b3;
+}
+
+/* Réactivité : ajustement des tailles pour les petits écrans */
+@media screen and (max-width: 600px) {
+  .quiz {
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  .question-text {
+    font-size: 18px;
+  }
+
+  .answer-section button {
+    font-size: 14px;
+    padding: 15px;
+  }
+}
+
+/* Contrastes plus élevés pour les réponses */
+.right-answer {
+  background-color: #28a745 !important;
+  color: white !important;
+  border: 2px solid #218838 !important;
+}
+
+.wrong-answer {
+  background-color: #dc3545 !important;
+  color: white !important;
+  border: 2px solid #c82333 !important;
 }
