@@ -9,6 +9,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
     <link rel="stylesheet" href="./css/quiz.css" />
     <title>Quiz sur Stephen Hawking</title>
   </head>
@@ -43,6 +44,18 @@
         <span id="total-questions"></span>.
       </section>
       <div class="question-number-position" id="question-number-position"></div>
+
+      <!-- Boutons pour passer à la question suivante ou afficher le score -->
+      <button
+        id="next-question-btn"
+        style="display: none"
+        onclick="nextQuestion()"
+      >
+        Passer à la question suivante
+      </button>
+      <button id="show-score-btn" style="display: none" onclick="showScore()">
+        Afficher le score
+      </button>
     </main>
 
     <script>
@@ -143,7 +156,8 @@
           answerSection.appendChild(button);
         });
 
-        document.getElementById("feedback-message").style.display = "none";
+        const feedbackMessage = document.getElementById("feedback-message");
+        feedbackMessage.style.visibility = "hidden"; // Cache le message tout en conservant l'espace
       }
 
       function handleAnswerClick(selectedAnswer, button) {
@@ -156,7 +170,6 @@
           feedbackMessage.textContent = "Bonne réponse !";
           feedbackMessage.classList.add("success");
           feedbackMessage.classList.remove("error");
-          feedbackMessage.style.display = "block";
           score++;
         } else {
           button.classList.add("wrong-answer"); // Change la couleur à rouge
@@ -164,8 +177,9 @@
           feedbackMessage.textContent = "Ce n'est pas la bonne réponse !";
           feedbackMessage.classList.add("error");
           feedbackMessage.classList.remove("success");
-          feedbackMessage.style.display = "block";
         }
+
+        feedbackMessage.style.visibility = "visible"; // Affiche le message sans modifier la mise en page
 
         // Désactive tous les boutons après une réponse
         const buttons = document.querySelectorAll("#answer-section button");
@@ -177,20 +191,29 @@
           }
         });
 
-        // Passe à la question suivante après un délai
-        setTimeout(() => {
-          currentQuestion++;
-          if (currentQuestion < quizData.length) {
-            loadQuestion();
-          } else {
-            showScore();
-          }
-        }, 3000); // Délai de 3 secondes avant de charger la question suivante
+        // Afficher le bon bouton en fonction de la question
+        if (currentQuestion < quizData.length - 1) {
+          document.getElementById("next-question-btn").style.display = "block";
+        } else {
+          document.getElementById("show-score-btn").style.display = "block";
+        }
+      }
+
+      function nextQuestion() {
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+          loadQuestion();
+        }
+        document.getElementById("next-question-btn").style.display = "none";
       }
 
       function showScore() {
         document.getElementById("answer-section").style.display = "none";
         document.getElementById("question-section").style.display = "none";
+        document.getElementById("question-number-position").style.display =
+          "none"; // Masque le numéro de question
+        document.getElementById("show-score-btn").style.display = "none"; // Masque le bouton Afficher le score
+
         document.getElementById("score-section").style.display = "block";
         document.getElementById("score").textContent = `${score}`;
         document.getElementById(
@@ -201,6 +224,18 @@
       window.onload = function () {
         loadQuestion();
       };
+    </script>
+    <div id="footer-container"></div>
+
+    <script>
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-container").innerHTML = data;
+        })
+        .catch((error) =>
+          console.error("Erreur lors de l'importation du footer:", error)
+        );
     </script>
   </body>
 </html>
