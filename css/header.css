@@ -33,6 +33,7 @@ header > * {
   cursor: pointer;
   transform: scale(1.1);
 }
+
 nav {
   display: flex;
   gap: 1vw;
@@ -64,9 +65,4 @@ nav a.active {
 nav a:hover {
   background-color: #0055cc;
   color: white;
-}
-
-.logo img {
-  width: 100%; /* Ajustez la hauteur selon la taille souhaitée */
-  width: 100%;
 }
