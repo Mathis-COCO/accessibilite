@@ -1,1 +1,135 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .ecran-4 {
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+  }
 
+  .quote-container {
+    display: flex;
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 1px;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 20px;
+    margin: 0 auto 40px;
+    max-width: 800px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .quote-border-bottom {
+    width: 115px;
+    height: 6px;
+    border: 5px solid #003366;
+  }
+  .quote-text {
+    color: #393939;
+    font-size: 30px;
+    line-height: 1.5;
+    margin: 20px;
+    font-style: italic;
+  }
+  .quote-author {
+    color: #000;
+    font-size: 20px;
+    margin-top: 8px;
+    text-align: right;
+  }
+  .section-title {
+    color: #000;
+    letter-spacing: 0.5px;
+    text-align: center;
+    margin-top: 42px;
+    font: 400 48px/1.2 Roboto, sans-serif;
+  }
+  .section-description {
+    color: #000;
+    letter-spacing: 0.5px;
+    margin-top: 20px;
+    font: 400 20px/1.5 Roboto, sans-serif;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .main-image,
+  .side-image,
+  .bottom-image {
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .content-container {
+    margin-top: 40px;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  .text-column {
+    flex: 2;
+    text-align: center;
+  }
+  .text-content {
+    color: #000;
+    letter-spacing: 0.5px;
+    font: 400 20px/1.5 Roboto, sans-serif;
+    text-align: center;
+  }
+  .image-column {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .final-text {
+    color: #000;
+    letter-spacing: 0.5px;
+    margin: 40px 0;
+    font: 400 20px/1.5 Roboto, sans-serif;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  @media (max-width: 991px) {
+    .nav {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .quote-text {
+      font-size: 24px;
+    }
+    .section-title {
+      font-size: 32px;
+    }
+    .section-description,
+    .text-content,
+    .final-text {
+      font-size: 18px;
+    }
+    .content-wrapper {
+      flex-direction: column;
+    }
+  }

@@ -49,9 +49,11 @@
           <div class="article_txt article_txt_right perc_50">
             <h1>2. La cosmologie et le Big Bang</h1>
             <h4>
-              Hawking a contribué à la théorie du Big Bang, développant des modèles mathématiques qui décrivent l'univers à ses débuts. 
-              Il a travaillé sur la manière dont l'univers a évolué depuis cette singularité initiale, 
-              aidant à établir un lien entre la relativité générale et la mécanique quantique.
+              Hawking a contribué à la théorie du Big Bang, développant des
+              modèles mathématiques qui décrivent l'univers à ses débuts. Il a
+              travaillé sur la manière dont l'univers a évolué depuis cette
+              singularité initiale, aidant à établir un lien entre la relativité
+              générale et la mécanique quantique.
             </h4>
           </div>
         </article>
@@ -97,5 +99,17 @@
         </article>
       </section>
     </main>
+    <div id="footer-container"></div>
+
+    <script>
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-container").innerHTML = data;
+        })
+        .catch((error) =>
+          console.error("Erreur lors de l'importation du footer:", error)
+        );
+    </script>
   </body>
 </html>

@@ -4,21 +4,81 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/header.css" />
-    <title>Header Example</title>
+    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/maladie.css" />
+    <title>Sa Maladie - Stephen Hawking</title>
   </head>
   <body>
-    <div class="header">
-      <div class="logo">
-        <img src="images/logo.webp" alt="Logo" />
+    <header>
+      <nav class="logo">
+        <img src="images/logo.webp" alt="logo du site" />
+      </nav>
+      <nav>
+        <a href="biographie.html">Biographie</a>
+        <a href="recherches.html">Ses Recherches</a>
+        <a href="maladie.html">Sa Maladie</a>
+        <a href="quiz.html" class="active">Quiz</a>
+      </nav>
+    </header>
+
+    <!-- Section sur la maladie de Stephen Hawking -->
+    <section class="ecran-4">
+      <div class="background-gris">
+        <blockquote class="quote-container" aria-labelledby="quote-text">
+          <div class="quote-content">
+            <div class="quote-text-container">
+              <div class="quote-text-wrapper">
+                <p id="quote-text" class="quote-text">" Peu importe à quel point la vie semble difficile, il y a toujours quelque chose que vous pouvez faire et réussir. Tant qu'il y a de la vie, il y a de l'espoir. "</p>
+                <cite class="quote-author">- Stephen Hawking</cite>
+              </div>
+            </div>
+          </div>
+          <div class="quote-border-bottom"></div>
+        </blockquote>
+        
+        <h2 class="section-title">Sa maladie</h2>
+        
+        <p class="section-description">La maladie de Stephen Hawking, connue sous le nom de sclérose latérale amyotrophique (SLA), est une affection neurodégénérative qui touche les neurones moteurs responsables des mouvements volontaires. Diagnostiqué à l'âge de 21 ans, les médecins avaient prédit à Stephen Hawking seulement quelques années à vivre. Cependant, il a défié toutes les attentes en vivant jusqu'à l'âge de 76 ans.</p>
+        
+        <figure>
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/58cfff8e80dc048e886787b9eb9c0712d06b499d2ab95c68d3eb491868d49e1d?placeholderIfAbsent=true&apiKey=9a21b7bbb1014b6ca369c67e28955824" alt="Portrait de Stephen Hawking" class="main-image" />
+          <figcaption>Schéma de avant et après sclérose.</figcaption>
+        </figure>
+        
+        <div class="content-container">
+          <div class="content-wrapper">
+            <div class="text-column">
+              <p class="text-content">La SLA est une maladie qui affaiblit progressivement les muscles, conduisant à une paralysie. Dans le cas de Stephen Hawking, il a perdu l'usage de presque tous ses muscles, à l'exception de certains mécanismes faciaux et de ses yeux. La maladie n'affecte pas les fonctions cognitives, ce qui a permis à Stephen Hawking de continuer à mener une carrière brillante en tant que physicien théoricien et cosmologiste, malgré son corps immobilisé.</p>
+            </div>
+            <div class="image-column">
+              <figure>
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c1a2da4e7c798ec8dde20deb9541c7686a967dfb65f04a3dd2ed8905a3b9d6f1?placeholderIfAbsent=true&apiKey=9a21b7bbb1014b6ca369c67e28955824" alt="Stephen Hawking dans son fauteuil roulant" class="side-image" />
+                <figcaption>Message préventif .</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+        
+        <figure>
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ec3591e2d73b52b181a50d5dc53232d123a8a0f2331eb722091ab460bb6017b7?placeholderIfAbsent=true&apiKey=9a21b7bbb1014b6ca369c67e28955824" alt="Stephen Hawking donnant une conférence" class="bottom-image" />
+          <figcaption>Graphique montrant l'évolution de l'affaiblissement musculaire dû à la SLA en fonction du temps.</figcaption>
+        </figure>
+        
+        <p class="final-text">Hawking est devenu célèbre pour ses travaux sur les trous noirs et la cosmologie, ainsi que pour ses ouvrages de vulgarisation scientifique, tels que "Une brève histoire du temps". Il communiquait grâce à un système informatique sophistiqué qui lui permettait de s'exprimer en utilisant des contractions de ses muscles faciaux pour sélectionner des mots. Ce système a joué un rôle essentiel pour qu'il puisse partager ses idées scientifiques et continuer ses recherches malgré les limites physiques de sa maladie.<br />
+        <p class="final-text"><br /><span style="font-size: 32px; line-height: 34px">La résilience de Stephen Hawking face à la SLA est une véritable source d'inspiration. Malgré la progression inexorable de la maladie, il est resté optimiste et a mis l'accent sur l'importance de vivre pleinement, même en présence de difficultés physiques extrêmes.</span></p>
       </div>
-      <div class="nav">
-        <!-- Chaque bouton redirige vers une page -->
-        <a href="accueil.html"><button>Accueil</button></a>
-        <a href="biographie.html"><button>Biographie</button></a>
-        <a href="recherches.html"><button>Ses Recherches</button></a>
-        <a href="maladie.html"><button class="active">Sa Maladie</button></a>
-        <a href="quiz.html"><button>Quiz</button></a>
-      </div>
-    </div>
+    </section>
+    <div id="footer-container"></div>
+
+    <script>
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-container").innerHTML = data;
+        })
+        .catch((error) =>
+          console.error("Erreur lors de l'importation du footer:", error)
+        );
+    </script>
   </body>
 </html>
