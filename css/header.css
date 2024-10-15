@@ -8,6 +8,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
 }
+
 header {
   background-color: #003366;
   padding: 1vh 4rem 1vh 3vw;
@@ -33,13 +34,16 @@ header > * {
   cursor: pointer;
   transform: scale(1.1);
 }
+
 nav {
   display: flex;
   gap: 1vw;
   overflow: auto;
   scrollbar-width: thin;
   margin-right: 3rem;
+  flex-wrap: wrap;
 }
+
 nav a {
   background-color: white;
   color: #003366;
@@ -57,10 +61,12 @@ nav a {
   align-items: center;
   box-sizing: content-box;
 }
+
 nav a.active {
   background-color: #336699;
   color: white;
 }
+
 nav a:hover {
   background-color: #0055cc;
   color: white;
@@ -68,5 +74,57 @@ nav a:hover {
 
 .logo img {
   width: 100%; /* Ajustez la hauteur selon la taille souhaitée */
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  background-color: white;
+  height: 3px;
   width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 1vh 1rem;
+  }
+
+  nav {
+    justify-content: center;
+    margin-right: 0;
+  }
+
+  nav a {
+    max-width: 100%;
+    margin: 0.5rem 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hamburger {
+    display: flex;
+  }
+
+  nav.menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav.menu.show {
+    display: flex;
+  }
+
+  nav a {
+    margin: 10px 0;
+    text-align: center;
+  }
 }

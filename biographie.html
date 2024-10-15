@@ -11,12 +11,17 @@
   </head>
   <body>
     <header>
-      <nav class="logo">
+      <div class="logo">
         <img src="images/logo.webp" alt="logo du site" />
-      </nav>
-      <nav>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="menu">
         <a href="biographie.html" class="active">Biographie</a>
-        <a href="recherches.html" lass="active">Ses Recherches</a>
+        <a href="recherches.html" class="active">Ses Recherches</a>
         <a href="maladie.html">Sa Maladie</a>
         <a href="quiz.html">Quiz</a>
       </nav>
@@ -287,6 +292,12 @@
       .catch((error) =>
         console.error("Erreur lors de l'importation du footer:", error)
       );
+  </script>
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector('nav.menu');
+      menu.classList.toggle('show');
+    }
   </script>
   </body>
 </html>
