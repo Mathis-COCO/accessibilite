@@ -63,13 +63,13 @@ nav a {
 }
 
 nav a.active {
-  background-color: #18599a;
+  background-color: #0852ba;
   color: white;
   border: 2px solid white !important;
 }
 
 nav a:hover {
-  background-color: #0055cc;
+  background-color: #0852ba;
   color: white;
 }
 
