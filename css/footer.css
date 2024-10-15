@@ -1,4 +1,3 @@
-
 /* Footer Styles */
 footer {
   background-color: #003366;
@@ -57,7 +56,7 @@ footer {
   margin: 0.5rem 0;
   border: none;
   border-radius: 5px;
-  resize: vertical
+  resize: vertical;
 }
 
 .contact-form button {
@@ -77,6 +76,7 @@ footer {
   border-radius: 50%;
   height: 5rem;
   width: 5rem;
+  object-fit: cover;
 }
 
 .social-links {
@@ -109,4 +109,3 @@ form button {
   margin-top: 1.75rem;
   height: 2.5rem;
 }
-
