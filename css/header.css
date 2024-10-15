@@ -6,7 +6,7 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif; 
 }
 
 header {
@@ -28,6 +28,7 @@ header > * {
   font-weight: bold;
   color: white;
   transition: all 0.5s ease 0s;
+  margin-left: 2rem;
 }
 
 .logo:hover {
@@ -95,7 +96,15 @@ nav a:hover {
 @media screen and (max-width: 768px) {
   header {
     flex-direction: column;
-    padding: 1vh 1rem;
+    justify-content: space-between;
+    width: 100%;
+    /* padding: 1vh 1rem; */
+  }
+  .menu_and_hamburger {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
   }
 
   nav {
@@ -107,9 +116,15 @@ nav a:hover {
     max-width: 100%;
     margin: 0.5rem 0;
   }
+  .hamburger {
+    margin-right: 3rem;
+  }
 }
 
 @media screen and (max-width: 600px) {
+  .menu_and_hamburger {
+    display: flex;
+  }
   .hamburger {
     display: flex;
   }
@@ -127,5 +142,8 @@ nav a:hover {
   nav a {
     margin: 10px 0;
     text-align: center;
+  }
+  header {
+    display: flex;
   }
 }

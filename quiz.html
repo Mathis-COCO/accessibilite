@@ -15,19 +15,29 @@
   </head>
   <body>
     <header>
-      <nav class="logo">
-        <img src="images/logo.webp" alt="logo du site" />
-      </nav>
-      <nav>
+      <div class="menu_and_hamburger">
+        <div class="logo">
+          <a href="biographie.html">
+            <img src="images/logo.webp" alt="logo du site" />
+          </a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <nav class="menu">
         <a href="biographie.html">Biographie</a>
-        <a href="recherches.html">Ses Recherches</a>
+        <a href="recherches.html" >Ses Recherches</a>
         <a href="maladie.html">Sa Maladie</a>
         <a href="quiz.html" class="active">Quiz</a>
       </nav>
     </header>
 
     <main class="quiz">
-      <section class="question-section" id="question-section">
+      <section class="question-section" id="question-section" tabindex="0">
         <h1>QUIZ TIME !</h1>
         <p class="question-text" id="question-text">
           Quel est le titre du livre le plus célèbre de Stephen Hawking publié
@@ -166,7 +176,6 @@
 
         if (selectedAnswer === correctAnswer) {
           button.classList.add("right-answer"); // Change la couleur à vert
-          button.innerHTML += `<i class="fas fa-check icon-success"></i>`; // Icône verte
           feedbackMessage.textContent = "Bonne réponse !";
           feedbackMessage.classList.add("success");
           feedbackMessage.classList.remove("error");
@@ -175,6 +184,7 @@
           button.classList.add("wrong-answer"); // Change la couleur à rouge
           button.innerHTML += `<i class="fas fa-times icon-error"></i>`; // Icône rouge
           feedbackMessage.textContent = "Ce n'est pas la bonne réponse !";
+          feedbackMessage.setAttribute('tabindex', '0');
           feedbackMessage.classList.add("error");
           feedbackMessage.classList.remove("success");
         }
@@ -236,6 +246,12 @@
         .catch((error) =>
           console.error("Erreur lors de l'importation du footer:", error)
         );
+    </script>
+    <script>
+      function toggleMenu() {
+        const menu = document.querySelector('nav.menu');
+        menu.classList.toggle('show');
+      }
     </script>
   </body>
 </html>

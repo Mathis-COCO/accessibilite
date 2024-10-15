@@ -11,10 +11,20 @@
   </head>
   <body>
     <header>
-      <nav class="logo">
-        <img src="images/logo.webp" alt="logo du site" />
-      </nav>
-      <nav>
+      <div class="menu_and_hamburger">
+        <div class="logo">
+          <a href="biographie.html">
+            <img src="images/logo.webp" alt="logo du site" />
+          </a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <nav class="menu">
         <a href="biographie.html">Biographie</a>
         <a href="recherches.html" class="active">Ses Recherches</a>
         <a href="maladie.html">Sa Maladie</a>
@@ -22,7 +32,7 @@
       </nav>
     </header>
     <main>
-      <section>
+      <section tabindex="0">
         <article class="page-intro">
           <h1>
             "Le premier ennemi de la connaissance n'est pas l'ignorance, c'est
@@ -32,7 +42,7 @@
         </article>
       </section>
       <section class="section">
-        <article class="article">
+        <article class="article" tabindex="0">
           <div class="article_txt article_txt_left perc_50">
             <h2>1. Les trous noirs</h2>
             <p>
@@ -54,7 +64,7 @@
             />
           </div>
         </article>
-        <article class="article">
+        <article class="article" tabindex="0">
           <div class="article_img_container perc_50">
             <img
               src="./images/Hawking.webp"
@@ -73,7 +83,7 @@
             </p>
           </div>
         </article>
-        <article class="article">
+        <article class="article" tabindex="0">
           <div class="article_txt article_txt_center">
             <h2>3. L'univers sans bord</h2>
             <p>
@@ -85,7 +95,7 @@
             </p>
           </div>
         </article>
-        <article class="article">
+        <article class="article" tabindex="0">
           <div class="article_txt article_txt_left perc_70">
             <h2>4. La science populaire</h2>
             <p>
@@ -104,7 +114,7 @@
             />
           </div>
         </article>
-        <article class="article">
+        <article class="article" tabindex="0">
           <div class="article_img_container perc_30">
             <img
               src="./images/HawkingEspace.webp"
@@ -138,6 +148,12 @@
         .catch((error) =>
           console.error("Erreur lors de l'importation du footer:", error)
         );
+    </script>
+    <script>
+      function toggleMenu() {
+        const menu = document.querySelector('nav.menu');
+        menu.classList.toggle('show');
+      }
     </script>
   </body>
 </html>

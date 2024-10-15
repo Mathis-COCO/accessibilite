@@ -1,10 +1,21 @@
+/* Appliquer Flexbox au body */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
 /* Footer Styles */
 footer {
   background-color: #003366;
   color: #fff;
   text-align: center;
-  position: relative;
+  position: static; /* Pas de position relative ni absolute */
   bottom: 0;
+  width: 100%;
+  padding: 1rem 0;
+  margin-top: auto; /* Pousse le footer vers le bas */
 }
 
 .footer-content {
@@ -14,6 +25,7 @@ footer {
   padding: 2rem 0;
 }
 
+/* Autres styles inchangés */
 .footer-section {
   display: flex;
   flex-direction: column;
@@ -69,7 +81,8 @@ footer {
 }
 
 .contact-form button:hover {
-  background-color: rgb(226, 226, 226);
+  background-color: #0852ba;
+  color: white;
 }
 
 .other_site_pic img {
@@ -94,12 +107,6 @@ form button {
   width: 10rem;
 }
 
-form textarea {
-  width: 20rem;
-  min-height: 1rem;
-  height: 1rem;
-}
-
 form div {
   display: flex;
   flex-direction: column;
@@ -108,4 +115,11 @@ form div {
 form button {
   margin-top: 1.75rem;
   height: 2.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  form {
+    display: block;
+    gap: 4rem;
+  }
 }

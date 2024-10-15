@@ -11,17 +11,26 @@
   </head>
   <body>
     <header>
-      <nav class="logo">
-        <img src="images/logo.webp" alt="logo du site" />
-      </nav>
-      <nav>
+      <div class="menu_and_hamburger">
+        <div class="logo">
+          <a href="biographie.html">
+            <img src="images/logo.webp" alt="logo du site" />
+          </a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <nav class="menu">
         <a href="biographie.html">Biographie</a>
-        <a href="recherches.html">Ses Recherches</a>
+        <a href="recherches.html" >Ses Recherches</a>
         <a href="maladie.html" class="active">Sa Maladie</a>
         <a href="quiz.html">Quiz</a>
       </nav>
     </header>
-
     <!-- Section sur la maladie de Stephen Hawking -->
     <section class="ecran-4">
       <div class="background-gris">
@@ -152,6 +161,26 @@
         .catch((error) =>
           console.error("Erreur lors de l'importation du footer:", error)
         );
+    </script>
+
+    </script>
+    <div id="footer-container"></div>
+
+    <script>
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-container").innerHTML = data;
+        })
+        .catch((error) =>
+          console.error("Erreur lors de l'importation du footer:", error)
+        );
+    </script>
+    <script>
+      function toggleMenu() {
+        const menu = document.querySelector('nav.menu');
+        menu.classList.toggle('show');
+      }
     </script>
   </body>
 </html>
