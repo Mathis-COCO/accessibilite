@@ -6,7 +6,7 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: Arial, sans-serif; 
+  font-family: Arial, sans-serif;
 }
 
 header {
@@ -92,7 +92,10 @@ nav a:hover {
   height: 3px;
   width: 100%;
 }
-
+.logo a {
+  color: white;
+  text-decoration: none;
+}
 @media screen and (max-width: 768px) {
   header {
     flex-direction: column;
