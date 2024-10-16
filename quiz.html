@@ -14,6 +14,7 @@
     <title>Quiz sur Stephen Hawking</title>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Aller au contenu</a>
     <header>
       <div class="menu_and_hamburger">
         <div class="logo">
@@ -30,13 +31,13 @@
 
       <nav class="menu">
         <a href="biographie.html">Biographie</a>
-        <a href="recherches.html" >Ses Recherches</a>
+        <a href="recherches.html">Ses Recherches</a>
         <a href="maladie.html">Sa Maladie</a>
         <a href="quiz.html" class="active">Quiz</a>
       </nav>
     </header>
 
-    <main class="quiz">
+    <main class="quiz" id="main-content">
       <section class="question-section" id="question-section" tabindex="0">
         <h1>QUIZ TIME !</h1>
         <p class="question-text" id="question-text">
@@ -184,7 +185,7 @@
           button.classList.add("wrong-answer"); // Change la couleur à rouge
           button.innerHTML += `<i class="fas fa-times icon-error"></i>`; // Icône rouge
           feedbackMessage.textContent = "Ce n'est pas la bonne réponse !";
-          feedbackMessage.setAttribute('tabindex', '0');
+          feedbackMessage.setAttribute("tabindex", "0");
           feedbackMessage.classList.add("error");
           feedbackMessage.classList.remove("success");
         }
@@ -249,8 +250,8 @@
     </script>
     <script>
       function toggleMenu() {
-        const menu = document.querySelector('nav.menu');
-        menu.classList.toggle('show');
+        const menu = document.querySelector("nav.menu");
+        menu.classList.toggle("show");
       }
     </script>
   </body>

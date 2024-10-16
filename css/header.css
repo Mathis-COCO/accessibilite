@@ -77,6 +77,21 @@ nav a:hover {
 .logo img {
   width: 100%; /* Ajustez la hauteur selon la taille souhaitée */
 }
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background-color: #000;
+  color: #fff;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
 
 .hamburger {
   display: none;

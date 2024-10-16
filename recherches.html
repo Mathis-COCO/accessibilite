@@ -10,6 +10,7 @@
     <title>Recherches - Stephen Hawking</title>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Aller au contenu</a>
     <header>
       <div class="menu_and_hamburger">
         <div class="logo">
@@ -31,7 +32,7 @@
         <a href="quiz.html">Quiz</a>
       </nav>
     </header>
-    <main>
+    <main id="main-content">
       <section tabindex="0">
         <article class="page-intro">
           <h1>
@@ -151,8 +152,8 @@
     </script>
     <script>
       function toggleMenu() {
-        const menu = document.querySelector('nav.menu');
-        menu.classList.toggle('show');
+        const menu = document.querySelector("nav.menu");
+        menu.classList.toggle("show");
       }
     </script>
   </body>
