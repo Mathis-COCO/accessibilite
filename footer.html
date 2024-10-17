@@ -1,22 +1,38 @@
-<footer>
+<footer role="contentinfo">
   <div class="footer-content">
     <div class="footer-section about">
-      <h2>Site similaire</h2>
-      <a href="https://www.alberteinstein.com/" class="other_site_pic">
+      <h2 id="about-heading">Site similaire</h2>
+      <a
+      href="https://www.alberteinstein.com/"
+      class="other_site_pic"
+      aria-labelledby="about-heading"
+      aria-describedby="about-albert"
+    >
         <img
           src="./images/albert.webp"
           alt="photo site similaire albert einstein"
         />
-        <p>Albert Einstein</p>
+        <p id="about-albert">Albert Einstein</p>
       </a>
     </div>
 
     <div class="footer-section contact-form">
-      <h2>Contactez-nous</h2>
-      <form id="contactForm" onsubmit="return validateForm()">
+      <h2 id="contact-heading">Contactez-nous</h2>
+      <form
+        id="contactForm"
+        onsubmit="return validateForm()"
+        aria-labelledby="contact-heading"
+        aria-describedby="contact-description"
+      >
         <div>
           <label for="email">Email:</label>
-          <input type="email" id="email" placeholder="Votre email" required />
+          <input
+          type="email"
+          id="email"
+          placeholder="Votre email"
+          required
+          aria-required="true"
+        />
         </div>
         <div>
           <label for="message">Message:</label>
@@ -26,24 +42,31 @@
             oninput="autoResize(this)"
             rows="1"
             required
-          ></input>
+            aria-required="true"
+            aria-describedby="message-description"
+          /></input>
         </div>
-        <button type="submit">Envoyer</button>
+        <button type="submit" aria-label="Envoyer le formulaire">Envoyer</button>
       </form>
     </div>
 
     <div class="footer-section">
-      <h2>Suivez-nous</h2>
-      <div class="social-links">
-        <a href="#">
+      <h2 id="social-heading">Suivez-nous</h2>
+      <div
+      class="social-links"
+      aria-labelledby="social-heading"
+      role="navigation"
+      aria-label="Réseaux sociaux"
+    >
+    <a href="#" aria-label="Suivez-nous sur Facebook">
           <img src="./images/facebook.webp" alt="" />
           <p>Facebook</p>
         </a>
-        <a href="#">
+        <a href="#" aria-label="Suivez-nous sur Twitter">
           <img src="./images/twitter.webp" alt="" />
           <p>Twitter</p>
         </a>
-        <a href="#">
+        <a href="#" aria-label="Suivez-nous sur Linkedin">
           <img src="./images/linkdin.webp" alt="" />
           <p>Linkedin</p>
         </a>

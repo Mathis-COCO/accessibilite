@@ -11,24 +11,32 @@
   </head>
   <body>
     <a href="#main-content" class="skip-link">Aller au contenu</a>
-    <header>
+
+    <header aria-label="En-tête de la page">
       <div class="menu_and_hamburger">
         <div class="logo">
-          <a href="index.html">
+          <a href="index.html" aria-label="Retour à l'accueil">
             <img src="images/logo.webp" alt="logo du site" />
           </a>
         </div>
-        <div class="hamburger" onclick="toggleMenu()">
+        <div
+          class="hamburger"
+          aria-label="Bouton pour afficher ou masquer le menu"
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          onclick="toggleMenu()"
+        >
           <span></span>
           <span></span>
           <span></span>
         </div>
       </div>
 
-      <nav class="menu">
+      <nav class="menu" aria-label="Navigation principale">
         <a href="index.html">Biographie</a>
         <a href="recherches.html" >Ses Recherches</a>
-        <a href="maladie.html" class="active">Sa Maladie</a>
+        <a href="maladie.html" class="active" aria-current="page">Sa Maladie</a>
         <a href="quiz.html">Quiz</a>
       </nav>
     </header>
@@ -36,7 +44,7 @@
     <!-- Contenu principal de la page -->
     <main id="main-content">
       <!-- Section sur la maladie de Stephen Hawking -->
-      <section class="ecran-4">
+      <section class="ecran-4" aria-labelledby="maladie-section">
         <div class="background-gris">
           <article>
             <blockquote class="quote-container" aria-labelledby="quote-text">
@@ -55,8 +63,8 @@
             </blockquote>
           </article>
 
-          <article tabindex="0">
-            <h2 class="section-title">Sa maladie</h2>
+          <article tabindex="0" aria-labelledby="title-sa-maladie">
+            <h2 id="title-sa-maladie" class="section-title">Sa maladie</h2>
 
             <p class="section-description">
               La maladie de Stephen Hawking, connue sous le nom de sclérose latérale
@@ -166,7 +174,7 @@
       </section>
     </main>
 
-    <div id="footer-container"></div>
+    <div id="footer-container" aria-label="Pied de page"></div>
 
     <script>
       fetch("footer.html")
@@ -182,7 +190,10 @@
     <script>
       function toggleMenu() {
         const menu = document.querySelector('nav.menu');
+        const isExpanded = menu.classList.contains('show');
         menu.classList.toggle('show');
+        document.querySelector('.hamburger').setAttribute('aria-expanded', !isExpanded);
+
       }
     </script>
   </body>

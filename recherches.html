@@ -10,42 +10,65 @@
     <title>Recherches - Stephen Hawking</title>
   </head>
   <body>
-    <a href="#main-content" class="skip-link">Aller au contenu</a>
-    <header>
-      <div class="menu_and_hamburger">
+    <a
+      href="#main-content"
+      class="skip-link"
+      aria-label="Aller directement au contenu principal"
+      >Aller au contenu</a
+    >
+    <header aria-label="En-tête du site">
+      <div class="menu_and_hamburger" role="banner">
         <div class="logo">
           <a href="index.html">
             <img src="images/logo.webp" alt="logo du site" />
           </a>
         </div>
-        <div class="hamburger" onclick="toggleMenu()">
+        <div
+          class="hamburger"
+          onclick="toggleMenu()"
+          aria-label="Ouvrir ou fermer le menu de navigation"
+          aria-expanded="false"
+          aria-controls="menu-navigation"
+        >
           <span></span>
           <span></span>
           <span></span>
         </div>
       </div>
 
-      <nav class="menu">
+      <nav
+        class="menu"
+        role="navigation"
+        aria-label="Menu principal"
+        id="menu-navigation"
+      >
         <a href="index.html">Biographie</a>
-        <a href="recherches.html" class="active">Ses Recherches</a>
+        <a href="recherches.html" class="active" aria-current="page"
+          >Ses Recherches</a
+        >
         <a href="maladie.html">Sa Maladie</a>
         <a href="quiz.html">Quiz</a>
       </nav>
     </header>
-    <main id="main-content">
-      <section tabindex="0">
+    <main id="main-content" role="main">
+      <section tabindex="0" role="region" aria-labelledby="intro-quote">
         <article class="page-intro">
-          <h1>
+          <h1 id="intro-quote">
             "Le premier ennemi de la connaissance n'est pas l'ignorance, c'est
             l'illusion de la connaissance."
           </h1>
           <h2>- Stephen Hawking</h2>
         </article>
       </section>
-      <section class="section">
-        <article class="article" tabindex="0">
+      <section class="section" aria-labelledby="research-section">
+        <article
+          class="article"
+          tabindex="0"
+          role="article"
+          aria-labelledby="black-holes"
+        >
           <div class="article_txt article_txt_left perc_50">
-            <h2>1. Les trous noirs</h2>
+            <h2 id="black-holes">1. Les trous noirs</h2>
             <p>
               Stephen Hawking a proposé que ces objets célestes ne soient pas
               totalement « noirs » et émettent une radiation, connue sous le nom
@@ -62,19 +85,26 @@
               src="./images/TrouNoirHawking.webp"
               alt="image de trou noir selon Stephen Hawking"
               class="article_img"
+              aria-describedby="black-holes"
             />
           </div>
         </article>
-        <article class="article" tabindex="0">
+        <article
+          class="article"
+          tabindex="0"
+          role="article"
+          aria-labelledby="big-bang"
+        >
           <div class="article_img_container perc_50">
             <img
               src="./images/Hawking.webp"
               alt="image de Stephen Hawking devant un tableau comportant des calculs"
               class="article_img"
+              aria-describedby="big-bang"
             />
           </div>
           <div class="article_txt article_txt_right perc_50">
-            <h2>2. La cosmologie et le Big Bang</h2>
+            <h2 id="big-bang">2. La cosmologie et le Big Bang</h2>
             <p>
               Hawking a contribué à la théorie du Big Bang, développant des
               modèles mathématiques qui décrivent l'univers à ses débuts. Il a
@@ -84,9 +114,14 @@
             </p>
           </div>
         </article>
-        <article class="article" tabindex="0">
+        <article
+          class="article"
+          tabindex="0"
+          role="article"
+          aria-labelledby="no-boundary"
+        >
           <div class="article_txt article_txt_center">
-            <h2>3. L'univers sans bord</h2>
+            <h2 id="no-boundary">3. L'univers sans bord</h2>
             <p>
               Avec son coéquipier James Hartle, Hawking a formulé la proposition
               de l'univers sans bord. Cette théorie suggère que l'univers n'a
@@ -96,9 +131,14 @@
             </p>
           </div>
         </article>
-        <article class="article" tabindex="0">
+        <article
+          class="article"
+          tabindex="0"
+          role="article"
+          aria-labelledby="popular-science"
+        >
           <div class="article_txt article_txt_left perc_70">
-            <h2>4. La science populaire</h2>
+            <h2 id="popular-science">4. La science populaire</h2>
             <p>
               Hawking est également connu pour avoir popularisé la science à
               travers ses livres, notamment "Une brève histoire du temps". Ce
@@ -112,19 +152,26 @@
               src="./images/HawkingPlanetsBG.webp"
               alt="image de trou noir selon Stephen Hawking"
               class="article_img"
+              aria-describedby="popular-science"
             />
           </div>
         </article>
-        <article class="article" tabindex="0">
+        <article
+          class="article"
+          tabindex="0"
+          role="article"
+          aria-labelledby="ai-universe"
+        >
           <div class="article_img_container perc_30">
             <img
               src="./images/HawkingEspace.webp"
               alt="image de trou noir selon Stephen Hawking"
               class="article_img"
+              aria-describedby="ai-universe"
             />
           </div>
           <div class="article_txt article_txt_right perc_70">
-            <h2>
+            <h2 id="ai-universe">
               5. La recherche sur l’intelligence artificielle et l'univers
             </h2>
             <p>
@@ -138,7 +185,7 @@
         </article>
       </section>
     </main>
-    <div id="footer-container"></div>
+    <div id="footer-container" aria-label="Pied de page"></div>
 
     <script>
       fetch("footer.html")
@@ -153,7 +200,10 @@
     <script>
       function toggleMenu() {
         const menu = document.querySelector("nav.menu");
+        const hamburger = document.querySelector(".hamburger");
+        const isExpanded = hamburger.getAttribute("aria-expanded") === "true";
         menu.classList.toggle("show");
+        hamburger.setAttribute("aria-expanded", !isExpanded);
       }
     </script>
   </body>

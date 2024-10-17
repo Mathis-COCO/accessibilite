@@ -15,29 +15,35 @@
   </head>
   <body>
     <a href="#main-content" class="skip-link">Aller au contenu</a>
-    <header>
+    <header role="banner">
       <div class="menu_and_hamburger">
         <div class="logo">
           <a href="index.html">
             <img src="images/logo.webp" alt="logo du site" />
           </a>
         </div>
-        <div class="hamburger" onclick="toggleMenu()">
+        <div
+          class="hamburger"
+          aria-label="Menu"
+          role="button"
+          aria-expanded="false"
+          onclick="toggleMenu()"
+        >
           <span></span>
           <span></span>
           <span></span>
         </div>
       </div>
 
-      <nav class="menu">
+      <nav class="menu" role="navigation" aria-label="Menu principal">
         <a href="index.html">Biographie</a>
         <a href="recherches.html">Ses Recherches</a>
         <a href="maladie.html">Sa Maladie</a>
-        <a href="quiz.html" class="active">Quiz</a>
+        <a href="quiz.html" class="active" aria-current="page">Quiz</a>
       </nav>
     </header>
 
-    <main class="quiz" id="main-content">
+    <main class="quiz" id="main-content" role="main">
       <section class="question-section" id="question-section" tabindex="0">
         <h1>QUIZ TIME !</h1>
         <p class="question-text" id="question-text">
@@ -45,26 +51,52 @@
           en 1988 ?
         </p>
         <!-- Le message de feedback juste après la question -->
-        <p id="feedback-message" class="feedback-message"></p>
+        <p
+          id="feedback-message"
+          class="feedback-message"
+          role="alert"
+          aria-live="polite"
+        ></p>
       </section>
-      <section class="answer-section" id="answer-section">
+      <section
+        class="answer-section"
+        id="answer-section"
+        aria-labelledby="question-text"
+        role="group"
+      >
         <!-- Les boutons de réponse seront insérés ici -->
       </section>
-      <section id="score-section" class="score-section" style="display: none">
+      <section
+        id="score-section"
+        class="score-section"
+        aria-live="polite"
+        style="display: none"
+      >
         Vous avez obtenu <span id="score"></span> sur
         <span id="total-questions"></span>.
       </section>
-      <div class="question-number-position" id="question-number-position"></div>
-
+      <div
+        class="question-number-position"
+        id="question-number-position"
+        aria-live="polite"
+      ></div>
       <!-- Boutons pour passer à la question suivante ou afficher le score -->
       <button
         id="next-question-btn"
         style="display: none"
         onclick="nextQuestion()"
+        aria-controls="question-section answer-section"
+        aria-label="Passer à la question suivante"
       >
         Passer à la question suivante
       </button>
-      <button id="show-score-btn" style="display: none" onclick="showScore()">
+      <button
+        id="show-score-btn"
+        style="display: none"
+        onclick="showScore()"
+        aria-controls="score-section"
+        aria-label="Afficher le score"
+      >
         Afficher le score
       </button>
     </main>
@@ -236,7 +268,7 @@
         loadQuestion();
       };
     </script>
-    <div id="footer-container"></div>
+    <div id="footer-container" role="contentinfo"></div>
 
     <script>
       fetch("footer.html")
@@ -251,6 +283,10 @@
     <script>
       function toggleMenu() {
         const menu = document.querySelector("nav.menu");
+        const hamburger = document.querySelector(".hamburger");
+        const isExpanded = hamburger.getAttribute("aria-expanded") === "true";
+
+        hamburger.setAttribute("aria-expanded", !isExpanded);
         menu.classList.toggle("show");
       }
     </script>
